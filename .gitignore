@@ -126,6 +126,8 @@ env.bak/
 venv.bak/
 pythonenv*
 venv
+/media
+/static
 
 # Spyder project settings
 .spyderproject
