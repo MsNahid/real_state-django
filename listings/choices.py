@@ -1,4 +1,5 @@
 bedroom_choices = {
+  "":"Bedrooms (Any)",
   '1':1,
   '2':2,
   '3':3,
@@ -12,6 +13,7 @@ bedroom_choices = {
   }
 
 price_choices = {
+  "":'Max Price(All)',
   '100000':'$100,000',
   '200000':'$200,000',
   '300000':'$300,000',
@@ -25,6 +27,7 @@ price_choices = {
 }
 
 state_choices = {
+        "":'State (All)',
         'AK': 'Alaska',
         'AL': 'Alabama',
         'AR': 'Arkansas',
@@ -85,4 +88,5 @@ state_choices = {
         'RJ': 'Rajshahi',
         'KH': 'Khulna',
         'DH': 'Dhaka',
+       
 }

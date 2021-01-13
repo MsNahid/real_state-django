@@ -15,9 +15,27 @@
                 <h1 class="display-4 mb-4">
                     <strong>Find Your Flat</strong>
                 </h1>
-                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores
-                    eveniet vel nostrum magnam
-                    voluptatum tempore! Consectetur, id commodi!</p>
+                <p class="lead">
+                    <strong>Most Searched- </strong>
+
+                    <!-- Popular Search -->
+                    {% if popular_keyword  %}
+                    <u><strong>Keyword</u>: {{ popular_keyword.0.search_value }}</strong>
+                    {% endif %}
+
+                    {% if popular_city  %}
+                    <u><strong>City</u>: {{ popular_city.0.search_value }}</strong>
+                    {% endif %}
+
+                    {% if popular_bedroom  %}
+                    <u><strong>Bedroom</u>: {{ popular_bedroom.0.search_value }}</strong>
+                    {% endif %}
+
+                    {% if popular_price  %}
+                    <u><strong>Price</u>: {{ popular_price.0.search_value }}</strong> 
+                    {% endif %}
+
+                </p>
                 <div class="search">
                     <form action="{% url 'listings:search' %}">
                         <!-- Form Row 1 -->
@@ -127,12 +145,78 @@
             {% endfor %}
 
             {% else %}
-            <p>No listings available.</p>
-
+            <div class="card-body">
+                <p class="text-center bg-danger text-white">No listings available, check Upcoming</p>
+            </div>
             {% endif %}
         </div>
     </div>
 </section>
+
+<!-- Listings -->
+<section id="listings" class="py-5">
+    <div class="container">
+        <h3 class="text-center mb-3">Upcoming Listings</h3>
+        <div class="row">
+            {% if unPublished_listings %}
+
+            {% for listing in unPublished_listings %}
+            <!-- Listing 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-preview">
+                    <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                    <div class="card-img-overlay">
+                        <h2>
+                            <span class="badge badge-secondary text-white">${{ listing.price | intcomma }}</span>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="listing-heading text-center">
+                            <h4 class="text-primary">{{ listing.title }}</h4>
+                            <p>
+                                <i class="fas fa-map-marker text-secondary"></i> {{ listing.city}}, {{ listing.state }} {{ listing.zipcode }}
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="row py-2 text-secondary">
+                            <div class="col-6">
+                                <i class="fas fa-th-large"></i> Sqft:{{ listing.sqft }}</div>
+                            <div class="col-6">
+                                <i class="fas fa-car"></i> Garage:{{ listing.garage }}</div>
+                        </div>
+                        <div class="row py-2 text-secondary">
+                            <div class="col-6">
+                                <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}</div>
+                            <div class="col-6">
+                                <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}</div>
+                        </div>
+                        <hr>
+                        <div class="row py-2 text-secondary">
+                            <div class="col-6">
+                                <i class="fas fa-user"></i> {{ listing.realtor }}</div>
+                        </div>
+                        <div class="row text-secondary pb-2">
+                            <div class="col-6">
+                                <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
+                        </div>
+                        <hr>
+                        <a href="{% url 'listings:listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+            <div class="card-body">
+                <p class="text-center bg-danger text-white">No listings available, check Upcoming</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
 
 <section id="services" class="py-5 bg-secondary text-white">
     <div class="container">

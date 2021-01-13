@@ -98,3 +98,16 @@ img {
 .bg-primary-footer {
   background-color: black !important;
 }
+
+#createrealtors{
+  margin: 20%;
+}
+
+#properties-head-dashboard{
+  text-align: center;
+}
+
+.hr-bold{
+  border-width: 10px;
+  border-color: #0d59af;
+}

@@ -4,14 +4,14 @@ from realtors.models import Realtor
 
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200) #search field
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
-    state = models.CharField(max_length=200)
+    state = models.CharField(max_length=200) #search field
     zipcode = models.CharField(max_length=200)
-    descriptions = models.TextField(blank=True)
-    price = models.IntegerField()
-    bedrooms = models.IntegerField()
+    descriptions = models.TextField(blank=True) #search field
+    price = models.IntegerField() #search field
+    bedrooms = models.IntegerField() #search field
     bathrooms = models.DecimalField(max_digits=2, decimal_places=1)
     garge = models.IntegerField()
     sqft = models.IntegerField()
@@ -28,6 +28,19 @@ class Listing(models.Model):
 
     def __str__(self):
         return self.title
+
+class SearchResult(models.Model):
+    search_key = models.CharField(max_length=200, blank=True)
+    search_value = models.CharField(max_length=200, blank=True)
+    search_count = models.IntegerField(default=1)
+    list_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.search_key
+
+
+
+    
 
 
 

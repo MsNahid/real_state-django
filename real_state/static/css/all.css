@@ -3807,3 +3807,24 @@ readers do not read off random characters that represent icons */
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
+
+
+
+#dashboard-cards{
+   background-color: #0d59af;
+
+}
+
+/* #total-orders{
+    background-color: #0d59af;
+}
+
+
+#orders-delivered{
+    background-color: #7abecc;
+}
+
+#orders-pending{
+    background-color: #7CD1C0;
+} */
+

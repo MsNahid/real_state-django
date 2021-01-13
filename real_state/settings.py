@@ -25,13 +25,16 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
+    'dashboard.apps.DashboardConfig',
     'django.contrib.admin', 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'django.contrib.humanize',
+    'django.contrib.humanize',
+    'bootstrap_modal_forms',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +134,10 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
      messages.ERROR:'danger'
 }
+
+#Email config
+EMAIL_HOST = 'smtp.gamil.com'
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = 'm.nahidzaman@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True

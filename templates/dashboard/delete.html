@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<br>
+
+<section id="bc" class="delete-ml-5 py-3">
+    <div class="container pop">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-body">
+                    <p>Are you sure want to delete "{{ listing.title }}"</p>
+
+                    <form action="{% url 'dashboard:delete_property' listing.id %}" method="POST">
+
+                        {% csrf_token %}
+                        <a class="pop-btn btn btn-warning" href="{% url 'dashboard:dash' %}">Cancel</a>
+
+                        <input class="btn btn-danger" type="submit" name="Confirm">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
