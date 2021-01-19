@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
     'dashboard.apps.DashboardConfig',
+    'others.apps.OthersConfig',
     'django.contrib.admin', 
     'django.contrib.auth',
     'django.contrib.contenttypes',

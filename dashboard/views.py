@@ -5,7 +5,12 @@ from realtors.models import Realtor
 from django.contrib.auth.models import User
 
 from .forms import RealtorForm, ListingForm
+from django.contrib.auth.decorators import login_required
+from accounts.decorators import allowed_users
 
+
+@login_required(login_url="accounts:login")
+@allowed_users(allowed_roles=['admin'])
 def dash(request):
 
     #Dashboard count card
@@ -34,6 +39,8 @@ def dash(request):
 
     return render(request, 'dashboard/controll.html', context)
 
+@login_required(login_url="accounts:login")
+@allowed_users(allowed_roles=['admin'])
 def create_realtors(request):
 
     form = RealtorForm()
@@ -50,7 +57,8 @@ def create_realtors(request):
 
     return render(request, 'dashboard/create_realtors.html', context)
 
-
+@login_required(login_url="accounts:login")
+@allowed_users(allowed_roles=['admin'])
 def update_property(request, pk):
 
     listing = Listing.objects.get(id=pk)
@@ -70,7 +78,8 @@ def update_property(request, pk):
 
     return render(request, 'dashboard/update.html', context)
 
-
+@login_required(login_url="accounts:login")
+@allowed_users(allowed_roles=['admin'])
 def delete_property(request, pk):
 
     listing = Listing.objects.get(id=pk)

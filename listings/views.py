@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Listing, SearchResult
 from .choices import *
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
@@ -15,6 +16,7 @@ def index(request):
     }
     return render(request, 'listings/listings.html', context)
 
+@login_required(login_url="accounts:login")
 def listing(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
     context = {'listing': listing }

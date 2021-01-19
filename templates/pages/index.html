@@ -4,10 +4,20 @@
 
 
 {% block title %}
-| Home  
+| Home
 {% endblock title %}
 {% block content %}
-<!-- Showcase -->
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'partials/_carousel.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="showcase">
     <div class="container text-center">
         <div class="home-search p-5">
@@ -32,7 +42,7 @@
                     {% endif %}
 
                     {% if popular_price  %}
-                    <u><strong>Price</u>: {{ popular_price.0.search_value }}</strong> 
+                    <u><strong>Price</u>: {{ popular_price.0.search_value }}</strong>
                     {% endif %}
 
                 </p>
@@ -58,7 +68,7 @@
                                     {% for key, value in state_choices.items  %}
                                     <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
-                                        
+
                                 </select>
                             </div>
                         </div>
@@ -82,7 +92,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+                        <button id="btn-search-custom" class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
                     </form>
                 </div>
             </div>
@@ -111,7 +121,8 @@
                         <div class="listing-heading text-center">
                             <h4 class="text-primary">{{ listing.title }}</h4>
                             <p>
-                                <i class="fas fa-map-marker text-secondary"></i> {{ listing.city}}, {{ listing.state }} {{ listing.zipcode }}
+                                <i class="fas fa-map-marker text-secondary"></i> {{ listing.city}}, {{ listing.state }}
+                                {{ listing.zipcode }}
                             </p>
                         </div>
                         <hr>
@@ -137,7 +148,8 @@
                                 <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                         </div>
                         <hr>
-                        <a href="{% url 'listings:listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                        <a href="{% url 'listings:listing' listing.id %}" class="btn btn-primary btn-block">More
+                            Info</a>
                     </div>
                 </div>
             </div>
@@ -174,7 +186,8 @@
                         <div class="listing-heading text-center">
                             <h4 class="text-primary">{{ listing.title }}</h4>
                             <p>
-                                <i class="fas fa-map-marker text-secondary"></i> {{ listing.city}}, {{ listing.state }} {{ listing.zipcode }}
+                                <i class="fas fa-map-marker text-secondary"></i> {{ listing.city}}, {{ listing.state }}
+                                {{ listing.zipcode }}
                             </p>
                         </div>
                         <hr>
@@ -200,7 +213,8 @@
                                 <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                         </div>
                         <hr>
-                        <a href="{% url 'listings:listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                        <a href="{% url 'listings:listing' listing.id %}" class="btn btn-primary btn-block">More
+                            Info</a>
                     </div>
                 </div>
             </div>

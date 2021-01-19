@@ -58,10 +58,13 @@
 
 <!-- Work -->
 <section id="work" class="bg-dark text-white text-center">
-    <h2 class="display-4">We Work For You</h2>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
-    <hr>
-    <a href="listings.html" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'partials/_carousel.html' %}
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Team -->
@@ -81,7 +84,8 @@
                 <p>
                     <i class="fas fa-phone"></i>{{ realtor.phone }}</p>
                 <p>
-                    <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p> </p>
+                    <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
+                </p>
             </div>
 
             {% endfor %}
