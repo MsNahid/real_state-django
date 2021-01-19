@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 
 from django.contrib.auth.decorators import login_required
 from accounts.decorators import unauthenticated_user
-
+from django.contrib.auth.models import Group
 # Create your views here.
 @unauthenticated_user
 def register(request):
@@ -33,6 +33,11 @@ def register(request):
                     first_name=first_name, last_name=last_name)
                     #save registration
                     user.save()
+
+                    #added specified groups
+                    group = Group.objects.get(name='clients')
+                    user.groups.add(group)
+                    
                     messages.success(request, "Account created successfully.")
                     return redirect('accounts:login')          
         else:
