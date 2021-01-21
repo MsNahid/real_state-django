@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'al6*r@fj!z3c8!!yt5j8t6!7axi9qrl5nr6o(=skuz0oyxzr^0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nahidrealstate.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -141,6 +141,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'msnahid.edu@gmail.com'
-EMAIL_HOST_PASSWORD = '420msnahid.com21'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 

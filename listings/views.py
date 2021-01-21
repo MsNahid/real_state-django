@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
-    paginator = Paginator(listings, 4)
+    paginator = Paginator(listings, 3)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
