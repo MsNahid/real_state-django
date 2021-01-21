@@ -5,6 +5,9 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from accounts.decorators import unauthenticated_user
 from django.contrib.auth.models import Group
+
+from django.conf import settings 
+from django.core.mail import send_mail 
 # Create your views here.
 @unauthenticated_user
 def register(request):
@@ -39,6 +42,13 @@ def register(request):
                     user.groups.add(group)
                     
                     messages.success(request, "Account created successfully.")
+
+                    #Sending confirmation message for signup account
+                    subject = 'Welcome to Real state'
+                    message = f'Hi {user.username}, thank you for registering in dhaka realstate.'
+                    recipient_list = [user.email, ]
+                    email_from = settings.EMAIL_HOST_USER 
+                    send_mail(subject, message, email_from, recipient_list)
                     return redirect('accounts:login')          
         else:
             messages.error(request, "Passwords do not match")
