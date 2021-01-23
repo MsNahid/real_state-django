@@ -27,4 +27,7 @@ This project is develop for helping to maintain buy and  sell falt. Two types of
   
 
   ### Screen Shoots
-  
+  ![s1](https://user-images.githubusercontent.com/17920660/105568677-791dac80-5d65-11eb-9435-d59f02f54b61.PNG)
+  ![s2](https://user-images.githubusercontent.com/17920660/105568679-7b800680-5d65-11eb-9149-bceec2e2ebce.PNG)
+  ![s3](https://user-images.githubusercontent.com/17920660/105568681-7cb13380-5d65-11eb-9e41-bb92ed02368f.png)
+  ![s4](https://user-images.githubusercontent.com/17920660/105568683-7f138d80-5d65-11eb-890b-5914a8d75e37.png)
