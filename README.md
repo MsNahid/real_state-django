@@ -7,8 +7,7 @@ This project is develop for helping to maintain buy and  sell falt. Two types of
 #### [Live App](https://mydjangorealstate.herokuapp.com/)
 
 ## Running your machine guideline.
-
-..* Clone the repository
+* clone 
 
 
   
